@@ -333,3 +333,119 @@ This renders the `index.html` file that will be used to interact with the backen
 **Throws**
 
 - `403` if the user is not logged in
+
+### `GET /api/tags` - View all tags
+
+**Returns**
+
+- An array of all tags sorted in ascending alphabetic order by content
+
+### `POST /api/tags` - Create a new tag
+
+**Body**
+
+- content *{string}* - The content of the new tag
+
+**Returns**
+
+- an object with the new tag
+
+#### `PUT /api/tags/add` - Add a tag to a freet
+
+**Body**
+
+- content *{string}* - The content of the tag
+- freetId *{string}* - The id of the freet to add the tag to
+
+**Returns**
+
+- true if tag successfully added to freet, false otherwise
+
+#### `PUT /api/tags/remove` - Remove a tag from a freet
+
+**Body**
+
+- content *{string}* - The content of the tag
+
+- freetId *{string}* - The id of the freet to remove the tag from
+
+**Returns**
+
+- true if tag successfully removed from freet, false otherwise
+
+### `GET /api/filteredFeed` - View feed with all freets
+
+**Body**
+
+- tags *{string[]}* - Tags to filter by
+- users *{string[]}* - Tags to filter by
+
+**Returns**
+
+- An array of freets that match the filter contents (or is unfiltered if the filter is empty)
+
+### `PUT /api/filteredFeed/add` - Add a tag or user to the filter
+
+**Body**
+
+- filterItem *{string}* - item to add to the filter
+
+**Returns**
+
+- true if tag or user successfully added
+
+**Throws**
+
+- `404` if item is invalid
+
+### `PUT /api/filteredFeed/remove` - Remove a tag or user to the filter
+
+**Body**
+
+- filterItem *{string}* - item to remove from the filter
+
+**Returns**
+
+- true if tag or user successfully removed
+
+**Throws**
+
+- `404` if item is not in filter
+
+### `PUT /api/filteredFeed/clear` - Clear the filter
+
+**Returns**
+
+- An array with all freets to display
+
+### `POST /api/flags` - Create a new flag
+
+**Body**
+
+- freetId *{string}* - The freet to add the flag to
+- type *{string}* - The type of flag to create
+- content *{string}* - The properties of the flag
+
+**Returns**
+
+- an object with the new flag
+
+### `DELETE /api/flags` - delete a flag
+
+**Body**
+
+- flagId *{string}* - The flag to delete
+
+**Returns**
+
+- true if a flag was successfully deleted
+
+**Throws**
+
+- `404` if flagId is invalid
+
+
+
+
+
+
