@@ -373,7 +373,7 @@ This renders the `index.html` file that will be used to interact with the backen
 
 - true if tag successfully removed from freet, false otherwise
 
-### `GET /api/filteredFeed` - View feed with all freets
+#### `GET /api/filteredFeed` - View feed with all freets
 
 **Body**
 
@@ -384,7 +384,7 @@ This renders the `index.html` file that will be used to interact with the backen
 
 - An array of freets that match the filter contents (or is unfiltered if the filter is empty)
 
-### `PUT /api/filteredFeed/add` - Add a tag or user to the filter
+#### `PUT /api/filteredFeed/add` - Add a tag or user to the filter
 
 **Body**
 
@@ -398,7 +398,7 @@ This renders the `index.html` file that will be used to interact with the backen
 
 - `404` if item is invalid
 
-### `PUT /api/filteredFeed/remove` - Remove a tag or user to the filter
+#### `PUT /api/filteredFeed/remove` - Remove a tag or user to the filter
 
 **Body**
 
@@ -412,13 +412,13 @@ This renders the `index.html` file that will be used to interact with the backen
 
 - `404` if item is not in filter
 
-### `PUT /api/filteredFeed/clear` - Clear the filter
+#### `PUT /api/filteredFeed/clear` - Clear the filter
 
 **Returns**
 
 - An array with all freets to display
 
-### `POST /api/flags` - Create a new flag
+#### `POST /api/flags` - Create a new flag
 
 **Body**
 
@@ -430,7 +430,7 @@ This renders the `index.html` file that will be used to interact with the backen
 
 - an object with the new flag
 
-### `DELETE /api/flags` - delete a flag
+#### `DELETE /api/flags` - delete a flag
 
 **Body**
 
