@@ -334,13 +334,13 @@ This renders the `index.html` file that will be used to interact with the backen
 
 - `403` if the user is not logged in
 
-### `GET /api/tags` - View all tags
+#### `GET /api/tags` - View all tags
 
 **Returns**
 
 - An array of all tags sorted in ascending alphabetic order by content
 
-### `POST /api/tags` - Create a new tag
+#### `POST /api/tags` - Create a new tag
 
 **Body**
 
