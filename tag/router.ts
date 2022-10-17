@@ -83,4 +83,4 @@ router.post(
     }
   );
 
-export {router as freetRouter};
+export {router as tagRouter};
