@@ -54,7 +54,7 @@ class TagCollection {
    * @return {Promise<HydratedDocument<Tag>[]>} - An array of all of the tags
    */
   static async findAll(): Promise<Array<HydratedDocument<Tag>>> {
-    // Retrieves tags and sorts them from most to least recent
+    // Retrieves tags and sorts them alphabetically
     return TagModel.find({}).sort({content: 1});
   }
 
@@ -70,6 +70,20 @@ class TagCollection {
   }
 
   /**
+   * Get all the freets for a given tag
+   * 
+   * @param {string} tagContent - The content of the tag
+   * @return {Promise<HydratedDocument<Freet>> | Promise<null>} - the freets for the given tag, if any
+   */
+
+  static async getTagFreets(tagContent: string): Promise<Array<HydratedDocument<Freet>>> {
+    const tag = await TagModel.findOne({content: tagContent});
+    const freetIds = tag.tagged;
+    return FreetModel.find({'_id': {$in: freetIds}});
+  } 
+    
+
+  /**
    * Add a tag to a freet
    *
    * @param {string} freetId - The id of the freet to be updated
@@ -79,7 +93,7 @@ class TagCollection {
   static async addTag(freetId: Types.ObjectId | string, tagContent: string): Promise<HydratedDocument<Freet>> {
     const freet = await FreetModel.findOne({_id: freetId});
     const tag = await TagCollection.findByContent(tagContent);
-    if (tag != null) {
+    if (tag !== null) {
         freet.tags.push(tag._id);
         tag.tagged.push(freet._id);
 
@@ -93,14 +107,14 @@ class TagCollection {
    * Remove a tag from a freet
    *
    * @param {string} freetId - The freetId of freet to delete
-   * @param {string} tagContent - An object with the freet's updated details
+   * @param {string} tagContent - The content of the tag to be removed
    * @return {Promise<Boolean>} - true if the tag has been deleted, false otherwise
    */
   static async removeTag(freetId: Types.ObjectId | string, tagContent: string): Promise<boolean> {
     const freet = await FreetModel.findOne({_id: freetId});
     const tag = await TagCollection.findByContent(tagContent);
- 
-    if (freet !== null && tag != null) {
+
+    if (freet !== null && tag !== null) {
         
         const tagInd = freet.tags.indexOf(tag._id);
         const freetInd = tag.tagged.indexOf(freet._id);

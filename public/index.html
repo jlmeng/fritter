@@ -8,6 +8,8 @@
   <script src="/scripts/freet.js"></script>
   <script src="/scripts/user.js"></script>
   <script src="/scripts/tag.js"></script>
+  <script src="/scripts/flag.js"></script>
+  <script src="/scripts/feed.js"></script>
   <script src="/scripts/index.js"></script>
 </head>
 
@@ -128,13 +130,178 @@
           <input type="submit" value="Delete Freet">
         </form>
 
+        <form id="view-all-tags">
+          <h3>View All Tags</h3>
+          <input type="submit" value="View All Tags">
+        </form>
+
         <form id="create-tag">
           <h3>Create Tag</h3>
           <div>
-            <label for="content">Content:</label>
-            <textarea id="content" name="content"></textarea>
+            <label for="tag">Tag:</label>
+            <input id="tag" name="tag"></input>
           </div>
           <input type="submit" value="Create Tag">
+        </form>
+
+        <form id="add-tag">
+          <h3>Add Tag</h3>
+          <div>
+            <label for="id">Freet ID:</label>
+            <input id="id" name="id"></input>
+          </div>
+          <div>
+            <label for="tag">Tag:</label>
+            <input id="tag" name="tag"></input>
+          </div>
+          <input type="submit" value="Add Tag">
+        </form>
+
+        <form id="remove-tag">
+          <h3>Remove Tag</h3>
+          <div>
+            <label for="id">Freet ID:</label>
+            <input id="id" name="id"></input>
+          </div>
+          <div>
+            <label for="tag">Tag:</label>
+            <input id="tag" name="tag"></input>
+          </div>
+          <input type="submit" value="Remove Tag">
+        </form>
+
+        <form id="view-tag-freets">
+          <h3>View Freets For Tag</h3>
+          <div>
+            <label for="tag">Tag:</label>
+            <input id="tag" name="tag"></input>
+          </div>
+          <input type="submit" value="View Freets For Tag">
+        </form>
+
+        <form id="view-all-flags">
+          <h3>View All Flags</h3>
+          <input type="submit" value="View All Flags">
+        </form>
+
+        <form id="view-all-flags-on-freet">
+          <h3>View Flags on Freet</h3>
+          <div>
+            <label for="freetId">Freet ID:</label>
+            <input id="freetId" name="freetId">
+          </div>
+          <input type="submit" value="View Flags on Freet">
+        </form>
+
+        <form id="create-flag">
+          <h3>Create Flag</h3>
+          <div>
+            <label for="freetId">Freet ID:</label>
+            <input id="freetId" name="freetId"></input>
+          </div>
+          <div>
+            <label for="source">Source:</label>
+            <textarea id="source" name="source"></textarea>
+          </div>
+          <input type="submit" value="Create Flag">
+        </form>
+
+        <form id="challenge-flag">
+          <h3>Challenge Flag</h3>
+          <div>
+            <label for="flagId">Flag ID:</label>
+            <input id="flagId" name="flagId">
+          </div>
+          <input type="submit" value="Challenge Flag">
+        </form>
+
+        <form id="delete-flag">
+          <h3>Delete Flag</h3>
+          <div>
+            <label for="flagId">Flag ID:</label>
+            <input id="flagId" name="flagId">
+          </div>
+          <input type="submit" value="Delete Flag">
+        </form>
+
+        <form id="view-all-feeds">
+          <h3>View All Feeds</h3>
+          <input type="submit" value="View All Feeds">
+        </form>
+
+        <form id="view-feed">
+          <h3>View Feed with ID</h3>
+          <div>
+            <label for="id">Feed ID:</label>
+            <input id="id" name="id">
+          </div>
+          <input type="submit" value="View Feed with ID">
+        </form>
+
+        <form id="create-feed">
+          <h3>Create Feed</h3>
+          <input type="submit" value="Create Feed">
+        </form>
+
+        <form id="add-tag-feed">
+          <h3>Add Tag to Feed</h3>
+          <div>
+            <label for="id">Feed ID:</label>
+            <input id="id" name="id">
+          </div>
+          <div>
+            <label for="tag">Tag:</label>
+            <input id="tag" name="tag">
+          </div>
+          <input type="submit" value="Add Tag to Feed">
+        </form>
+
+        <form id="remove-tag-feed">
+          <h3>Remove Tag from Feed</h3>
+          <div>
+            <label for="id">Feed ID:</label>
+            <input id="id" name="id">
+          </div>
+          <div>
+            <label for="tag">Tag:</label>
+            <input id="tag" name="tag">
+          </div>
+          <input type="submit" value="Remove Tag from Feed">
+        </form>
+
+        <form id="add-user-feed">
+          <h3>Add user to Feed</h3>
+          <div>
+            <label for="id">Feed ID:</label>
+            <input id="id" name="id">
+          </div>
+          <div>
+            <label for="username">username:</label>
+            <input id="username" name="username">
+          </div>
+          <input type="submit" value="Add user to Feed">
+        </form>
+
+        <form id="remove-user-feed">
+          <h3>Remove user from Feed</h3>
+          <div>
+            <label for="id">Feed ID:</label>
+            <input id="id" name="id">
+          </div>
+          <div>
+            <label for="username">username:</label>
+            <input id="username" name="username">
+          </div>
+          <input type="submit" value="Remove user from Feed">
+        </form>
+
+        <form id="delete-feed">
+          <h3>Delete Feed</h3>
+          <div>
+            <label for="id">Feed ID:</label>
+            <input id="id" name="id">
+          </div>
+          <input type="submit" value="Delete Feed">
         </form>
 
       </div>

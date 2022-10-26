@@ -15,6 +15,7 @@ export type Freet = {
   dateModified: Date;
   views: number;
   tags: Types.ObjectId[];
+  flags: Types.ObjectId[];
 };
 
 // Mongoose schema definition for interfacing with a MongoDB table
@@ -50,6 +51,11 @@ const FreetSchema = new Schema<Freet>({
   },
   // Add tags field to the schema
   tags: {
+    type: [Schema.Types.ObjectId],
+    ref: 'Freet'
+  },
+  // Add flags field to the schema
+  flags: {
     type: [Schema.Types.ObjectId],
     ref: 'Freet'
   }

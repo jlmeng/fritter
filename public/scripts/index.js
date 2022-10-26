@@ -43,7 +43,24 @@ const formsAndHandlers = {
   'edit-freet': editFreet,
   'delete-freet': deleteFreet,
   'view-freet': viewFreet, // Add to formsAndHandlers to interact with on frontend
-  'create-tag': createTag
+  'view-all-tags': viewAllTags,
+  'create-tag': createTag,
+  'add-tag': addTag,
+  'remove-tag': removeTag,
+  'view-tag-freets': viewTagFreets,
+  'view-all-flags': viewAllFlags,
+  'view-all-flags-on-freet': viewAllFlagsOnFreet,
+  'create-flag': createFlag,
+  'challenge-flag': challengeFlag,
+  'delete-flag': deleteFlag,
+  'create-feed': createFeed,
+  'view-all-feeds': viewAllFeeds,
+  'view-feed': viewFeed,
+  'add-tag-feed': addTagFeed,
+  'remove-tag-feed': removeTagFeed,
+  'add-user-feed': addUserFeed,
+  'remove-user-feed': removeUserFeed,
+  'delete-feed': deleteFeed
 };
 
 // Attach handlers to forms

@@ -25,12 +25,8 @@ const isFreetExists = async (req: Request, res: Response, next: NextFunction) =>
  * spaces and not more than 140 characters
  */
 const isValidFreetContent = (req: Request, res: Response, next: NextFunction) => {
-  if (!req.body.content) {
-    next();
-    return;
-  }
-
   const {content} = req.body as {content: string};
+
   if (!content.trim()) {
     res.status(400).json({
       error: 'Freet content must be at least one character long.'
@@ -64,8 +60,25 @@ const isValidFreetModifier = async (req: Request, res: Response, next: NextFunct
   next();
 };
 
+/**
+ * Checks if the current user is the author of the freet whose freetId is in req.params
+ */
+ const isValidFreetModifierBody = async (req: Request, res: Response, next: NextFunction) => {
+  const freet = await FreetCollection.findOne(req.body.freetId);
+  const userId = freet.authorId;
+  if (req.session.userId !== userId.toString()) {
+    res.status(403).json({
+      error: 'Cannot modify other users\' freets.'
+    });
+    return;
+  }
+
+  next();
+};
+
 export {
   isValidFreetContent,
   isFreetExists,
-  isValidFreetModifier
+  isValidFreetModifier,
+  isValidFreetModifierBody
 };

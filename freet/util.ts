@@ -11,6 +11,7 @@ type FreetResponse = {
   dateModified: string;
   views: number;
   tags: string[];
+  flags: string[];
 };
 
 /**
@@ -41,7 +42,8 @@ const constructFreetResponse = (freet: HydratedDocument<Freet>): FreetResponse =
     authorId: freetCopy.authorId.toString(),
     dateCreated: formatDate(freet.dateCreated),
     dateModified: formatDate(freet.dateModified),
-    tags: freetCopy.tags.map(tag => tag.toString())
+    tags: freetCopy.tags.map(tag => tag.toString()),
+    flags: freetCopy.flags.map(flag => flag.toString()),
   };
 };
 
