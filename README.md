@@ -340,28 +340,46 @@ This renders the `index.html` file that will be used to interact with the backen
 
 - An array of all tags sorted in ascending alphabetic order by content
 
+#### `GET /api/tags/:tag?` - View all freets for a tag
+
+**Throws**
+- `400` If the tag content is empty or a stream of empty spaces
+- `413` If the tag content is more than 20 characters long
+- `404` If a tag of that value does not exist
+
+**Returns**
+
+- An array of all freets for the tag
+
 #### `POST /api/tags` - Create a new tag
 
 **Body**
 
 - content *{string}* - The content of the new tag
 
+**Throws**
+
+- `400` If the tag content is empty or a stream of empty spaces
+- `413` If the tag content is more than 20 characters long
+- `412` If the tag already exists
+
 **Returns**
 
 - an object with the new tag
 
-#### `PUT /api/tags/add` - Add a tag to a freet
+
+#### `PUT /api/tags/add/:freetId?` - Add a tag to a freet
 
 **Body**
 
 - content *{string}* - The content of the tag
-- freetId *{string}* - The id of the freet to add the tag to
 
 **Returns**
 
 - true if tag successfully added to freet, false otherwise
 
-#### `PUT /api/tags/remove` - Remove a tag from a freet
+
+#### `PUT /api/tags/remove/:freetId?` - Remove a tag from a freet
 
 **Body**
 
